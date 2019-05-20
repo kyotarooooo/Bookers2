@@ -1,12 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookers2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample7">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+        Bookers
+      </a>
+    </div>
+    
+    <div class="collapse navbar-collapse" id="navbarEexample7">
+      <ul class="nav navbar-nav">
+        <% if user_signed_in? %>
+          <li><span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= link_to "Home", user_path(current_user.id) %></li>
+          <li><span class="glyphicon glyphicon-user" aria-hidden="true"></span><%= link_to "users", users_path %></li>
+          <li><span class="glyphicon glyphicon-book" aria-hidden="true"></span><%= link_to "books", books_path %></li>
+          <li><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span><%= link_to "logout", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Home", books_path %></li>
+          <li><a href="#">about</a></li>
+          <li><a href="#">sign up</a></li>
+          <li><a href="#">login</a></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
   </head>
 
   <body>

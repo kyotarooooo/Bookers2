@@ -1,0 +1,21 @@
+			<h1>User info</h1>
+				<%= attachment_image_tag user, :profile_image, :fill, 20, 20, class: "user-image", fallback: "noimage.png" %>
+				<table class="table">
+				<thead>
+					<tr>
+						<th>name</th>
+						<th><%= user.username %></th>
+					</tr>
+				</thead>
+				</table>
+
+				<table class="table">
+				<thead>
+					<tr>
+						<th>ineroduction</th>
+						<th><%= user.introduction %></th>
+					</tr>
+				</thead>
+				</table>
+
+					<%= link_to "編集", edit_user_path(current_user) %>

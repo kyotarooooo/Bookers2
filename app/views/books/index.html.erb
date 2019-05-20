@@ -1,24 +1,30 @@
-<h1>Books</h1>
+<div class="container">
+	<div class="row sampleRow">
+		<div class="col-xs-3">
+			<%= render 'books/list2', user: @user %>
+			<%= render 'books/list', book: @new_book %>
+		</div>
 
-<%= @books.each do |book| %>
-	<p>title</p>
-	<span> <%= book.title %></span>
-	<p>opinion</p>
-	<span> <%= book.body %></span>
-<% end %>
-
-
-
-
-
-<%= form_for(@book) do |f| %>
-
-	<h4>title</h4>
-	<%= f.text_field :title %>
-
-	<h4>opinion</h4>
-	<%= f.text_area :body %>
-
-	<%= f.submit 'Create Book' %>
-
-<% end %>
+	<div class="col-xs-9">
+		<h1>Books</h1>
+		<table class="table">
+				<thead>
+					<tr>
+						<th></th>
+						<th>title</th>
+						<th>opinion</th>
+					</tr>
+				</thead>
+			<% @books.each do |book| %>
+				<tbody>
+					<tr>
+						<td><%= attachment_image_tag book.user, :profile_image, :fill, 20, 20, class: "user-image2", fallback: "noimage.png" %></td>
+						<td><%= link_to book.title, book_path(book) %></td>
+						<td><%= book.body %></td>
+					</tr>
+				</tbody>
+			<% end %>
+		</table>
+	</div>
+	</div>
+</div>

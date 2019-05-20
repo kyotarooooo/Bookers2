@@ -1,0 +1,71 @@
+<div class="container">
+	<div class="row sampleRow">
+		<div class="col-xs-3">
+				<h1>User info</h1>
+				<%= attachment_image_tag @user, :profile_image, :fill, 20, 20, class: "user-image", fallback: "noimage.png" %>
+				<table class="table">
+				<thead>
+					<tr>
+						<th>name</th>
+						<th><%= @user.username %></th>
+					</tr>
+				</thead>
+				</table>
+
+				<table class="table">
+				<thead>
+					<tr>
+						<th>introduction</th>
+						<th><%= @user.introduction %></th>
+					</tr>
+				</thead>
+				</table>
+
+					<%= link_to "編集", edit_user_path(current_user) %>
+
+				<h1>New book</h1>
+					<%= form_for(@book) do |f| %>
+				<div class="field_row">
+							<h4>title</h4>
+						<div class="col-xs-12">
+							<%= f.text_field :title %>
+						</div>
+							<h4>opinion</h4>
+						<div class="col-xs-12">
+							<%= f.text_area :body %>
+						</div>
+						<div class="col-xs-12">
+							<%= f.submit 'Create Book' %>
+						</div>
+					<% end %>
+				</div>
+		</div>
+
+
+		<div class="col-xs-9">
+			<h1>Books</h1>
+			<table class="table">
+				<thead>
+					<tr>
+						<th></th>
+						<th>title</th>
+						<th>opinion</th>
+					</tr>
+				</thead>
+			<% @books.each do |book| %>
+				<tbody>
+					<tr>
+						<td><%= attachment_image_tag @user, :profile_image, :fill, 20, 20, class: "user-image2", fallback: "noimage.png" %></td>
+						<td><%= link_to book.title, book_path(book) %></td>
+						<td><%= book.body %></td>
+					</tr>
+				</tbody>
+			<% end %>
+			</table>
+		</div>
+	</div>
+</div>
+
+
+
+

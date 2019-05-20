@@ -1,9 +1,33 @@
-<h1>Books detail</h1>
+<div class="container">
+	<div class="row sampleRow">
+		<div class="col-xs-3">
+			<%= render 'books/list2', user: @book.user %>
+			<%= render 'books/list', book: @new_book %>
+		</div>
 
-<h2>title</h2>
-<p><%= @book.title %></p>
-<h2>body</h2>
-<p><%= @book.body %></p>
 
-<%= link_to "Edit", edit_book_path(@book.id) %>
-<%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %>
+
+		<div class="col-xs-9">
+			<h1>Books detail</h1>
+			<table class="table">
+				<thead>
+					<tr>
+						<th></th>
+						<th>title</th>
+						<th>opinion</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+					<tr>
+						<td><%= attachment_image_tag @book.user, :profile_image, :fill, 20, 20, class: "user-image2", fallback: "noimage.png" %></td>
+						<td><%= @book.title %></td>
+						<td><%= @book.body %></td>
+						<td><%= link_to "Edit", edit_book_path(@book.id) %></td>
+						<td><%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
