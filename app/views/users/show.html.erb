@@ -55,7 +55,7 @@
 			<% @books.each do |book| %>
 				<tbody>
 					<tr>
-						<td><%= attachment_image_tag @user, :profile_image, :fill, 20, 20, class: "user-image2", fallback: "noimage.png" %></td>
+						<td><%= attachment_image_tag book.user, :profile_image, :fill, 20, 20, class: "user-image2", fallback: "noimage.png" %></td>
 						<td><%= link_to book.title, book_path(book) %></td>
 						<td><%= book.body %></td>
 					</tr>

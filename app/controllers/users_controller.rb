@@ -8,8 +8,8 @@ class UsersController < ApplicationController
 
 	def show
 		@book = Book.new
-		@user = current_user
-		@books = current_user.books
+		@books = Book.all
+		@user = User.find(params[:id])
 	end
 
 	def edit
@@ -18,8 +18,13 @@ class UsersController < ApplicationController
 
 	def update
 		@user = User.find(params[:id])
-		@user.update(user_params)
+		if @user.update(user_params)
+			flash[:notice] = "You have updated user successfully."
 		redirect_to user_path(@user.id)
+		else
+        	flash.now[:error] = @user.errors.full_messages
+        render :'users/edit'
+    end
 	end
 
 	private

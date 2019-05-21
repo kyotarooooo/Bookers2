@@ -1,3 +1,12 @@
+<% if flash[:error].present?   %>
+<%# byebug %>
+<% flash[:error].each do |message| %>
+	<div class="form-error">
+		<%= message %>
+	</div>
+<% end %>
+<%# flash[:error]="" %>
+<% end %>
 <div class="container">
 	<div class="row sampleRow">
 		<div class="col-xs-3">

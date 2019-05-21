@@ -9,6 +9,8 @@
 
 		<div class="col-xs-9">
 			<h1>Books detail</h1>
+
+			<% if @book.user_id = current_user %>
 			<table class="table">
 				<thead>
 					<tr>
@@ -28,6 +30,25 @@
 					</tr>
 				</tbody>
 			</table>
+			<% else %>
+			<table class="table">
+				<thead>
+					<tr>
+						<th></th>
+						<th>title</th>
+						<th>opinion</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+					<tr>
+						<td><%= attachment_image_tag @book.user, :profile_image, :fill, 20, 20, class: "user-image2", fallback: "noimage.png" %></td>
+						<td><%= @book.title %></td>
+						<td><%= @book.body %></td>
+					</tr>
+				</tbody>
+			</table>
+			<% end %>
 		</div>
 	</div>
 </div>

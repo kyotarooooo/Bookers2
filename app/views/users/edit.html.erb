@@ -1,4 +1,13 @@
 <h1>User info</h1>
+<% if flash[:error].present?   %>
+<%# byebug %>
+<% flash[:error].each do |message| %>
+	<div class="form-error">
+		<%= message %>
+	</div>
+<% end %>
+<%# flash[:error]="" %>
+<% end %>
 
 <%= form_for(@user) do |f| %>
 	<h4>name</h4>
@@ -10,5 +19,5 @@
 	<h4>Introduction</h4>
 	<%= f.text_area :introduction %>
 
-	<%= f.submit 'Create Book' %>
+	<%= f.submit 'Editting User' %>
 <% end %>
