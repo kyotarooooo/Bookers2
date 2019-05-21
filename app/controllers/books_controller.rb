@@ -38,6 +38,13 @@ class BooksController < ApplicationController
      end
   end
 
+  def correct_user
+    book = Book.find(params[:id])
+    current_user != book
+    redirect_to books_path
+  end
+
+
   def update
   	book = Book.find(params[:id])
   	book.update(book_params)
