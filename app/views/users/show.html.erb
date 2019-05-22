@@ -21,7 +21,11 @@
 				</thead>
 				</table>
 
-				<button class="btn btn-default btn-lg btn-block"><%= link_to "編集", edit_user_path(current_user) %></button>
+				<button class="btn btn-default btn-lg btn-block">
+					<%= link_to edit_user_path(current_user) do %>
+					<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+					<% end %>
+			    </button>
 
 				<h1>New book</h1>
 					<%= form_for(@book) do |f| %>
@@ -31,7 +35,7 @@
 							<%= f.text_field :title %>
 						</div>
 							<h4>opinion</h4>
-						<div class="user-show">
+						<div class="user-show2">
 							<%= f.text_area :body %>
 						</div>
 						<div class="user-show">

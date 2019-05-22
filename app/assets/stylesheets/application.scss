@@ -35,7 +35,8 @@ container{
 }
 
 .top-text{
-	width: 750px;
+	width: 80%;
+	margin: 0 auto;
 	text-align: right;
 }
 
@@ -68,5 +69,22 @@ container{
 }
 
 .user-show{
-	width: 100%;
+	font-size: 20px;
+}
+
+.user-show2{
+	font-size: 24px;
+}
+
+.flash{
+	width: 75%;
+	margin: 0 auto;
+	color: #008000;
+}
+
+.form-error{
+	width: 75%;
+	margin: 0 auto;
+	color: #ff0000;
+	font-size: 50px;
 }

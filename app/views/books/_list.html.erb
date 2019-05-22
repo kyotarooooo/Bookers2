@@ -3,14 +3,14 @@
 					<%= form_for(book) do |f| %>
 				<div class="field_row">
 							<h4>title</h4>
-						<div class="col-xs-12">
+						<div class="user-show">
 							<%= f.text_field :title %>
 						</div>
 							<h4>opinion</h4>
-						<div class="col-xs-12">
+						<div class="user-show2">
 							<%= f.text_area :body %>
 						</div>
-						<div class="col-xs-12">
+						<div class="user-show">
 							<button class="btn btn-primary btn-lg btn-block"><% f.submit %>Create Book</button>
 						</div>
 					<% end %>
