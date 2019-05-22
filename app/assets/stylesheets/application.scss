@@ -20,7 +20,41 @@
 
 
 container{
-	width: 80%;
+	width: 750px;
+	margin: 0 auto;
+}
+
+.top-box{
+	width: 750px;
+	margin: 0 auto;
+}
+
+.top-box2{
+	width: 550px;
+	margin: 0 auto;
+}
+
+.top-text{
+	width: 750px;
+	text-align: right;
+}
+
+.signup-box{
+	width: 750px;
+	margin: 0 auto;
+}
+
+.signup-box2{
+	padding-bottom: 10px;
+}
+
+.login-box{
+	width: 750px;
+	margin: 0 auto;
+}
+
+.login-box2{
+	padding-bottom: 10px;
 }
 
 .user-image{
@@ -31,4 +65,8 @@ container{
 .user-image2{
 	width: 40px;
 	height: 40px;
+}
+
+.user-show{
+	width: 100%;
 }

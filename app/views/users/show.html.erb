@@ -2,7 +2,7 @@
 	<div class="row sampleRow">
 		<div class="col-xs-3">
 				<h1>User info</h1>
-				<%= attachment_image_tag @user, :profile_image, :fill, 20, 20, class: "user-image", fallback: "noimage.png" %>
+				<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, class: "user-image", fallback: "noimage.png" %>
 				<table class="table">
 				<thead>
 					<tr>
@@ -21,21 +21,22 @@
 				</thead>
 				</table>
 
-					<%= link_to "編集", edit_user_path(current_user) %>
+				<button class="btn btn-default btn-lg btn-block"><%= link_to "編集", edit_user_path(current_user) %></button>
 
 				<h1>New book</h1>
 					<%= form_for(@book) do |f| %>
 				<div class="field_row">
 							<h4>title</h4>
-						<div class="col-xs-12">
+						<div class="user-show">
 							<%= f.text_field :title %>
 						</div>
 							<h4>opinion</h4>
-						<div class="col-xs-12">
+						<div class="user-show">
 							<%= f.text_area :body %>
 						</div>
-						<div class="col-xs-12">
-							<%= f.submit 'Create Book' %>
+						<div class="user-show">
+
+							<button class="btn btn-primary btn-lg btn-block"><% f.submit %>Create Book</button>
 						</div>
 					<% end %>
 				</div>
@@ -55,7 +56,7 @@
 			<% @books.each do |book| %>
 				<tbody>
 					<tr>
-						<td><%= attachment_image_tag book.user, :profile_image, :fill, 20, 20, class: "user-image2", fallback: "noimage.png" %></td>
+						<td><%= attachment_image_tag book.user, :profile_image, :fill, 100, 100, class: "user-image2", fallback: "noimage.png" %></td>
 						<td><%= link_to book.title, book_path(book) %></td>
 						<td><%= book.body %></td>
 					</tr>

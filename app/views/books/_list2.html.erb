@@ -1,5 +1,5 @@
 			<h1>User info</h1>
-				<%= attachment_image_tag user, :profile_image, :fill, 20, 20, class: "user-image", fallback: "noimage.png" %>
+				<%= attachment_image_tag user, :profile_image, :fill, 100, 100, class: "user-image", fallback: "noimage.png" %>
 				<table class="table">
 				<thead>
 					<tr>
@@ -18,4 +18,4 @@
 				</thead>
 				</table>
 
-					<%= link_to "編集", edit_user_path(current_user) %>
+					<button class="btn btn-default"><%= link_to "編集", edit_user_path(current_user) %></button>

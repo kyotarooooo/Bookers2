@@ -31,7 +31,7 @@ class BooksController < ApplicationController
         flash[:notice] = "You have creatad book successfully."
   	   redirect_to book_path(book.id)
      else
-        flash.now[:error] = book.errors.full_messages
+        flash.now[:error] = "error:Post failure"
 
        render :'books/index'
      end
@@ -46,9 +46,14 @@ class BooksController < ApplicationController
 
 
   def update
-  	book = Book.find(params[:id])
-  	book.update(book_params)
-  	redirect_to book_path(book.id)
+  	@book = Book.find(params[:id])
+  if @book.update(book_params)
+       flash[:notice] = "You have creatad book successfully."
+  	   redirect_to book_path(@book.id)
+  else
+       flash.now[:error] = "error:Edit failure"
+       render :'books/edit'
+  end
   end
 
   def destroy
