@@ -1,4 +1,11 @@
 class UsersController < ApplicationController
+
+	before_action :authenticate_user!, except: [:top]
+
+	def top
+	end
+
+
 	def index
 		@users = User.all
 		@user = current_user
@@ -27,6 +34,10 @@ class UsersController < ApplicationController
         render :'users/edit'
     end
 	end
+
+	def correct_user
+    user = User.find(params[:id])
+  end
 
 	private
 	def user_params

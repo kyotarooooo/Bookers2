@@ -20,7 +20,7 @@
         Bookers
       </a>
     </div>
-    
+
     <div class="collapse navbar-collapse" id="navbarEexample7">
       <ul class="nav navbar-nav">
         <% if user_signed_in? %>
@@ -29,10 +29,10 @@
           <li><span class="glyphicon glyphicon-book" aria-hidden="true"></span><%= link_to "books", books_path %></li>
           <li><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span><%= link_to "logout", destroy_user_session_path, method: :delete %></li>
         <% else %>
-          <li><%= link_to "Home", books_path %></li>
-          <li><a href="#">about</a></li>
-          <li><a href="#">sign up</a></li>
-          <li><a href="#">login</a></li>
+          <li><%= link_to "Home", top_book_path %></li>
+          <li><%= link_to "About", top_user_path %></li>
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+          <li><%= link_to "Log in", new_user_session_path %></li>
         <% end %>
       </ul>
     </div>
