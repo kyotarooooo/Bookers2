@@ -7,7 +7,7 @@
 				<thead>
 					<tr>
 						<th>name</th>
-						<th><%= @user.username %></th>
+						<th><%= @user.name %></th>
 					</tr>
 				</thead>
 				</table>
@@ -21,26 +21,28 @@
 				</thead>
 				</table>
 
-				<button class="btn btn-default btn-lg btn-block">
-					<%= link_to edit_user_path(current_user) do %>
-					<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
-					<% end %>
-			    </button>
+
+				<%= link_to edit_user_path(@user) do %>
+					<button class="btn btn-default btn-lg btn-block">
+						<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+				    </button>
+				<% end %>
+
 
 				<h1>New book</h1>
 					<%= form_for(@book) do |f| %>
 				<div class="field_row">
-							<h4>title</h4>
+							<h4>Title</h4>
 						<div class="user-show">
 							<%= f.text_field :title %>
 						</div>
-							<h4>opinion</h4>
+							<h4>Opinion</h4>
 						<div class="user-show2">
 							<%= f.text_area :body %>
 						</div>
 						<div class="user-show">
 
-							<button class="btn btn-primary btn-lg btn-block"><% f.submit %>Create Book</button>
+					    <%= f.submit "Create Book", class: "btn btn-primary btn-lg btn-block" %>
 						</div>
 					<% end %>
 				</div>
@@ -53,8 +55,8 @@
 				<thead>
 					<tr>
 						<th></th>
-						<th>title</th>
-						<th>opinion</th>
+						<th>Title</th>
+						<th>Opinion</th>
 					</tr>
 				</thead>
 			<% @books.each do |book| %>

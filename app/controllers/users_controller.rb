@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
-	before_action :authenticate_user!, except: [:top]
+	before_action :authenticate_user!
+	before_action :correct_user, only: [:edit, :update]
 
 	def top
 	end
@@ -20,6 +21,18 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 	end
 
+	def create
+  	 	if @book.save
+        	flash[:notice] = "You have creatad book successfully."
+  	  	 	redirect_to book_path(@book.id)
+     	else
+      		@books = Book.all
+     		@new_book = Book.new
+      		@user = current_user
+			render :index
+     	end
+    end
+
 	def edit
 		@user = User.find(params[:id])
 	end
@@ -35,13 +48,21 @@ class UsersController < ApplicationController
     end
 	end
 
-	def correct_user
-    user = User.find(params[:id])
-  end
+
 
 	private
+
+	def book_params
+  	  params.require(:book).permit(:title, :body,)
+    end
 	def user_params
 		params.require(:user).permit(:name, :profile_image, :introduction)
 	end
+	def correct_user
+    user = User.find(params[:id])
+    if current_user != user
+      redirect_to user_path(current_user)
+    end
+    end
 
 end

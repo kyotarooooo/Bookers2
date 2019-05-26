@@ -1,20 +1,24 @@
-<% if flash[:error].present?   %>
-<%# byebug %>
+<div class="edit-box">
 
-	<div class="form-error">
-		<%= flash[:error] %>
-	</div>
-
-<%# flash[:error]="" %>
-<% end %>
 
 <h1>Editing Book</h1>
 <%= form_for(@book) do |f| %>
 
-<h4>title</h4>
-<%= f.text_field :title %>
-<h4>opinion</h4>
-<%= f.text_area :body %>
-
-<%= f.submit 'Update Book' %>
+<% if @book.errors.any? %>
+	<h2><%= @book.errors.count %>error prohibited this obj from being saved:</h2>
+	<ul><% @book.errors.full_messages.each do |messages| %></ul>
+		<li><%= messages %></li>
+	<% end %>
 <% end %>
+	<h4>Title</h4>
+		<%= f.text_field :title, :size => "99*99" %>
+	<h4>Opinion</h4>
+		<%= f.text_area :body, :size => "101*101" %>
+
+	<button class="btn btn-primary btn-lg btn-block"><% f.submit %>Update Book</button>
+<% end %>
+
+<%= link_to "Show", book_path %>
+<%= link_to "Back", books_path %>
+</div>
+

@@ -18,11 +18,43 @@
 
 
 
-
-container{
-	width: 750px;
-	margin: 0 auto;
+.top-title{
+	color: #ffffff;
 }
+
+.navbar-nav{
+	float: right;
+}
+
+.glyphicon-home:before{
+	padding-right: 10px;
+}
+
+.glyphicon-link:before{
+	padding-right: 10px;
+}
+
+.glyphicon-edit:before{
+	padding-right: 10px;
+}
+
+.glyphicon-log-in:before{
+	padding-right: 10px;
+}
+
+.glyphicon-user:before{
+	padding-right: 10px;
+}
+
+.glyphicon-book:before{
+	padding-right: 10px;
+}
+
+.glyphicon-log-out:before{
+	padding-right: 10px;
+}
+
+
 
 .top-box{
 	width: 750px;
@@ -41,7 +73,7 @@ container{
 }
 
 .signup-box{
-	width: 750px;
+	width: 80%;
 	margin: 0 auto;
 }
 
@@ -50,7 +82,7 @@ container{
 }
 
 .login-box{
-	width: 750px;
+	width: 80%;
 	margin: 0 auto;
 }
 
@@ -87,4 +119,18 @@ container{
 	margin: 0 auto;
 	color: #ff0000;
 	font-size: 50px;
+}
+
+.edit-box{
+	width: 750px;
+	margin: 0 auto;
+}
+
+.edit-box2{
+	padding-bottom: 10px;
+}
+
+
+.edit-box3{
+	display: inline-block;
 }

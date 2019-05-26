@@ -1,23 +1,32 @@
+<div class="edit-box">
+
 <h1>User info</h1>
-<% if flash[:error].present?   %>
-<%# byebug %>
-<% flash[:error].each do |message| %>
-	<div class="form-error">
-		<%= message %>
-	</div>
-<% end %>
-<%# flash[:error]="" %>
-<% end %>
 
 <%= form_for(@user) do |f| %>
-	<h4>name</h4>
-	<%= f.text_field :username %>
 
+<% if @user.errors.any? %>
+	<h2><%= @user.errors.count %>error prohibited this obj from being saved:</h2>
+	<ul><% @user.errors.full_messages.each do |messages| %></ul>
+		<li><%= messages %></li>
+	<% end %>
+<% end %>
+
+
+<div class="edit-box2">
+	<h4 class="edit-box3">Name</h4>
+	<%= f.text_field :name %>
+</div>
+
+<div class="edit-box2">
 	<h4>Image</h4>
 	<%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "user-edit-form" %>
-
-	<h4>Introduction</h4>
+</div>
+<div class="edit-box2">
+	<h4 class="edit-box3">Introduction</h4>
 	<%= f.text_area :introduction %>
+</div>
 
-	<%= f.submit 'Editting User' %>
+	<%= f.submit 'Update User' %>
 <% end %>
+
+</div>
